@@ -14,13 +14,12 @@ When designing this application, my primary focus was on simplicity, readability
   * `user_message` (Text)
   * `ai_response` (Text)
 
-**2. Setup Backend:**
-```bash
-cd backend
-pip install -r requirements.txt
-# Create a .env file here and add your GOOGLE_API_KEY
-uvicorn main:app --reload 
-# Note: replace 'main' with the actual name of your python file (e.g., app:app)
+### 2. Backend API (Python)
+* **Decision:** Built a RESTful API to handle data flow between the frontend, database, and the LLM. 
+* **Why:** To create a strict boundary protecting the database and API keys. 
+* **Structure:** The backend exposes two clean endpoints tested thoroughly via Postman:
+  * `POST /api/chat`: Validates input, securely calls the AI model, and saves the transaction to the database.
+  * `GET /api/chats`: Fetches the conversation history for the UI.
 
 ### 3. AI Integration (LangChain + Google Gemini)
 * **Decision:** Leveraged LangChain to orchestrate calls to the Google Gemini model.
@@ -48,11 +47,10 @@ git clone <your-repo-link>
 **2. Setup Backend:**
 \`\`\`bash
 cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install -r requirements.txt
-# Add your .env file with GOOGLE_API_KEY
-python app.py # Or however you start your server
+# Create a .env file here and add your GOOGLE_API_KEY
+uvicorn main:app --reload 
+# Note: replace 'main' with the actual name of your python file (e.g., app:app)
 \`\`\`
 
 **3. Setup Frontend:**
