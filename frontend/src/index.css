@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.chat-message-area::-webkit-scrollbar {
+ display: none;   
+}
