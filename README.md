@@ -49,11 +49,11 @@ git clone <your-repo-link>
 cd backend
 pip install -r requirements.txt
 \`\`\`
-# Create a .env file here and add your GOOGLE_API_KEY
+* Create a .env file here and add your GOOGLE_API_KEY
 \`\`\`
 uvicorn main:app --reload 
 \`\`\`
-# Note: replace 'main' with the actual name of your python file (e.g., app:app)
+* Note: replace 'main' with the actual name of your python file (e.g., app:app)
 
 **3. Setup Frontend:**
 \`\`\`bash
